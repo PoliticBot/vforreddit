@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import client from 'veronica/client';
+import client from 'vforreddit/client';
 
 function escapeRegExp(string){
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

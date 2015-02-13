@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'veronica',
+    modulePrefix: 'vforreddit',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
