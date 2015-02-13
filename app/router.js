@@ -14,16 +14,16 @@ Router.map(function() {
 
 window.onclick = function(e) {
   e = e || window.event;
-  var t = e.target || e.srcElement
+  var t = e.target || e.srcElement;
   t = Ember.$(t).closest('a').get(0);
-  if (t && t.href && !$(t).hasClass('dontintercept') && !$(t).hasClass('ember-view')){
+  if (t && t.href && !Ember.$(t).hasClass('dontintercept') && !Ember.$(t).hasClass('ember-view')){
     var parts = t.href.split(window.location.origin, 2);
     if (parts.length > 1) {
       e.preventDefault();
       try {
         Router.router.transitionTo(parts[1]);
-      } catch(e) {
-        console.error(e.stack || e);
+      } catch(err) {
+        console.error(err.stack || err);
       }
       return false;
     }
