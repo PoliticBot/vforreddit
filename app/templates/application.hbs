@@ -1,3 +1,18 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
-{{outlet}}
+<div id='header' role='banner'>
+  <a tabindex='1' href='#content' id='jumpToContent'>jump to content</a>
+  <div id='sr-header-area'>
+  </div>
+  <div id='header-bottom-left'>
+    {{#link-to 'index' id='header-img' class='default-header'}}
+      From reddit.com
+    {{/link-to}}
+    {{outlet "tabmenu"}}
+  </div>
+  <div id='header-bottom-right'>
+    THIS ISN"T REDDIT, it's the <em>V for Reddit</em> client
+  </div>
+</div>
+<div class='side'>{{outlet "sidebar"}}</div>
+<div class='listing-chooser initialized'></div>
+<a name='content'></a>
+<div class='content' role='main'>{{outlet}}</div>

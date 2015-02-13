@@ -1,0 +1,34 @@
+<style>.ember-app >.content .link .rank, .rank-spacer { width: 1.1ex } .ember-app >.content .link .midcol, .midcol-spacer { width: 5.1ex }</style>
+<div id='siteTable' class='sitetable linklisting'>
+  {{reddit-link content=link}}
+</div>
+<div class='commentarea'>
+  <div class='panestack-title'>
+    <span class='title'>all {{link.num_comments}} comments</span>
+  </div>
+  <div class='menuarea'>
+    <div class='spacer'>
+      <span class='dropdown-title lightdrop'>sorted by: </span>
+      <div class='dropdown lightdrop'>
+        <span class='selected'>best</span>
+      </div>
+      <div class='drop-choices lightdrop'>
+      </div>
+    </div>
+  </div>
+  {{!--
+  <form class='usertext cloneable'>
+    <div class='usertext-edit'>
+      <div><textarea rows=1 cols=1 name='text'></textarea></div>
+      <div class='bottom-area'>
+        <div class='usertext-buttons'>
+          <button type='submit' class='save'>save</button>
+          <button type='button' class='cancel'>cancel</button>
+          <span class='status'></span>
+        </div>
+      </div>
+    </div>
+  </form>
+  --}}
+  {{reddit-listing content=comments classNames="nestedlisting"}}
+</div>

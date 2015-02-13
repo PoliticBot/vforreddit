@@ -1,3 +1,4 @@
+/* globals window */
 import Ember from 'ember';
 import config from './config/environment';
 
@@ -6,6 +7,27 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('subreddit', {path: '/r/:subreddit'}, function() {
+    this.route('link', {path: '/comments/:id/:slug'});
+  });
 });
+
+window.onclick = function(e) {
+  e = e || window.event;
+  var t = e.target || e.srcElement
+  t = Ember.$(t).closest('a').get(0);
+  if (t && t.href && !$(t).hasClass('dontintercept') && !$(t).hasClass('ember-view')){
+    var parts = t.href.split(window.location.origin, 2);
+    if (parts.length > 1) {
+      e.preventDefault();
+      try {
+        Router.router.transitionTo(parts[1]);
+      } catch(e) {
+        console.error(e.stack || e);
+      }
+      return false;
+    }
+  }
+};
 
 export default Router;

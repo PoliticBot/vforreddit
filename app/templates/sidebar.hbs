@@ -1,0 +1,80 @@
+<div class='spacer'>
+  <form id='search' role='search'>
+    {{input value=search name='q' placeholder='search'}}
+    <input type='submit' value tabindex='22'/>
+    <div id='searchexpando' class='infobar'>
+    </div>
+  </form>
+</div>
+{{#if display_name}}
+  {{!--<div class='spacer'>
+    <div class='sidebox submit submit-link'>
+      <div class='morelink'>
+        <a>Submit a new link</a>
+        <div class='nub'></div>
+      </div>
+    </div>
+  </div>
+  <div class='spacer'>
+    <div class='sidebox submit submit-text'>
+      <div class='morelink'>
+        <a>Submit a new text post</a>
+        <div class='nub'></div>
+      </div>
+    </div>
+  </div>--}}
+  {{#if stylesheet}}<style>{{{stylesheet}}}</style>{{/if}}
+  <div class='spacer'>
+    <div class='titlebox'>
+      <h1 class='hover redditname'>
+        {{link-to display_name 'subreddit.index'}}
+      </h1>
+      <span class='subscribers'>
+        <span class='number'>{{subscribers}}</span>
+        <span class='word'>readers</span>
+      </span>
+      <p class='users-online' title='logged-in users viewing this subreddit in the past 15 minutes'>
+        <span class='number'>{{accounts_active}}</span>
+        <span class='word'>users here now</span>
+      </p>
+      <div class='tagline'></div>
+      <form class='usertext'>
+        <div class='usertext-body md-container'>
+          <div class='md'>
+            {{{description_html}}}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{{else}}
+  <div class='spacer'>
+    <div class='sidebox submit submit-link'>
+      <div class='morelink'>
+        <a>Submit a new link</a>
+        <div class='nub'></div>
+      </div>
+    </div>
+  </div>
+  <div class='spacer'>
+    <div class='sidebox submit submit-text'>
+      <div class='morelink'>
+        <a>Submit a new text post</a>
+        <div class='nub'></div>
+      </div>
+    </div>
+  </div>
+  <div class='spacer'>
+    <div class='sidebox create'>
+      <div class='morelink'>
+        <a>Create your own subreddit</a>
+        <div class='nub'></div>
+      </div>
+      <div class='spacer'>
+        <a></a>
+        <div class='subtitle'>...do it for the children.</div>
+        <div class='subtitle'>...for your office.</div>
+      </div>
+    </div>
+  </div>
+{{/if}}

@@ -1,0 +1,37 @@
+<p class='parent'></p>
+{{#if rank}}<span class='rank'>{{rank}}</span>{{/if}}
+<div class='midcol unvoted'>
+  <div class='arrow up' role='button' aria-label='upvote'></div>
+  <div class='score dislikes'>{{downs}}</div>
+  <div class='score unvoted'>{{score}}</div>
+  <div class='score likes'>{{ups}}</div>
+  <div class='arrow down' role='button' aria-label='downvote'></div>
+</div>
+{{#if thumbnail}}<a class='thumbnail may-blank' {{bind-attr href=url}}><img {{bind-attr src=thumbnail}}/></a>{{/if}}
+<div class='entry unvoted'>
+  <p class='title'>
+    <a class='title' {{bind-attr href=url}}>{{title}}</a>
+    <span class='domain'>(<a>{{domain}}</a>)</span>
+  </p><p class='tagline'>
+    submitted <time {{bind-attr
+      datetime=created_utc
+    }} class='live-timestamp'>X time ago</time>
+    by <a>{{author}}</a>
+    to <a href="/r/{{unbound subreddit}}">/r/{{subreddit}}</a>
+  </p>
+  <ul class='flat-list buttons'>
+    <li class='first'>
+      <a {{bind-attr href=permalink}} class="comments">
+        {{num_comments}} comments
+      </a>
+    </li>{{!--<li class='share'>
+    </li><li class='link-save-button save-button'>
+      <a>save</a>
+    </li><li class='report-button'>
+      <a>report</a>
+    </li>--}}
+  </ul>
+  <div class='expando'></div>
+</div>
+<div class='child'></div>
+<div class='clearleft'></div>
