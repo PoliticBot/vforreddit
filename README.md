@@ -1,5 +1,11 @@
 # V for reddit client
 
+## [Demo](http://politicbot.github.com) 
+
+## [Subreddit Demo](http://politicbot.github.com/#/r/POLITIC)
+
+
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
