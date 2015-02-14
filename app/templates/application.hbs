@@ -1,11 +1,24 @@
 <div id='header' role='banner'>
   <a tabindex='1' href='#content' id='jumpToContent'>jump to content</a>
   <div id='sr-header-area'>
+    Welcome to the <strong>V for Reddit</strong> reddit client.
+    <STRONG>THIS IS NOT REDDIT!!!</STRONG>
+    It is an Ember.js application built to replicate and extend the familiar user interface.
   </div>
   <div id='header-bottom-left'>
-    {{#link-to 'index' id='header-img' class='default-header'}}
-      From reddit.com
-    {{/link-to}}
+    {{#if subreddit.header_img}}
+      {{#link-to 'index' id='header-img-a' class='default-header'}}
+        <img id='header-img' {{bind-attr
+          src=subreddit.header_img
+          alt=subreddit.display_name
+          title=subreddit.header_title
+        }}>
+      {{/link-to}}
+    {{else}}
+      {{#link-to 'index' id='header-img' class='default-header'}}
+        From reddit.com
+      {{/link-to}}
+    {{/if}}
     {{outlet "tabmenu"}}
   </div>
   <div id='header-bottom-right'>

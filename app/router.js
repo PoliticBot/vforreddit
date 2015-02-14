@@ -9,7 +9,6 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.resource('subreddit', {path: '/r/:subreddit'}, function() {
     this.route('link', {path: '/comments/:id/:slug'});
-    this.route('hot');
     this.route('new');
     this.route('rising');
     this.route('controversial');

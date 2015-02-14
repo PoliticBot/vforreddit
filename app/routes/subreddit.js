@@ -26,7 +26,14 @@ export default Ember.Route.extend({
         css = css.replace(regex, 'url("'+img.url+'")');
       });
       model.stylesheet = css;
+      model.about = data;
     });
+  },
+
+  exit: function() {
+    if (this.controller) {
+      Ember.set(this.controller, 'model', null);
+    }
   },
 
   renderTemplate: function() {
