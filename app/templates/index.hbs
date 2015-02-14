@@ -1,7 +1,1 @@
-<div class='spacer'>
-  <style>.ember-app >.content .link .rank, .rank-spacer { width: 3.3ex } .ember-app >.content .link .midcol, .midcol-spacer { width: 5.1ex }</style>
-  {{reddit-listing content=content classNames="linklisting"}}
-  <div class='nav-buttons'>
-    {{link-to 'next &raquo;' (query-params after=last.name count=nextCount)}}
-  </div>
-</div>
+{{partial "subreddit/index"}}
