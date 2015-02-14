@@ -36,5 +36,10 @@ export default Ember.Route.extend({
       outlet: 'sidebar',
       controller: 'subreddit'
     });
+    this.render('subreddit/tabmenu', {
+      into: 'application',
+      outlet: 'tabmenu',
+      controller: 'subreddit'
+    });
   }
 });
