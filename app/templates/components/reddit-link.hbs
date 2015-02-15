@@ -12,7 +12,12 @@
   <p class='title'>
     <a class='title' {{bind-attr href=url}}>{{title}}</a>
     <span class='domain'>(<a>{{domain}}</a>)</span>
-  </p><p class='tagline'>
+  </p>
+  {{#if expandable}}
+    <div {{action "toggleExpand"}} {{bind-attr
+      class=':expando-button expand:expanded:collapsed expandoClass'}}></div>
+  {{/if}}
+  <p class='tagline'>
     submitted <time {{bind-attr
       datetime=created_utc
     }} class='live-timestamp'>X time ago</time>
@@ -31,7 +36,17 @@
       <a>report</a>
     </li>--}}
   </ul>
-  <div class='expando'></div>
+  {{#if expand}}
+    <div class='expando'>{{#if imageUrl}}
+      <img {{bind-attr src=imageUrl}}/>
+    {{/if}}{{#if selftext_html}}
+      <form class='usertext'>
+        <div class='usertext-body md-container'>
+          {{{selftext_html}}}
+        </div>
+      </form>
+    {{/if}}</div>
+  {{/if}}
 </div>
 <div class='child'></div>
 <div class='clearleft'></div>
