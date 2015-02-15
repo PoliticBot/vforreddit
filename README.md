@@ -1,8 +1,8 @@
 # V for reddit client
 
-## [Demo](http://politicbot.github.com) 
+## [Demo](http://politicbot.github.io) 
 
-## [Subreddit Demo](http://politicbot.github.com/#/r/POLITIC)
+## [Subreddit Demo](http://politicbot.github.io/#/r/POLITIC)
 
 
 
