@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   expand: false,
-  expandoClass: 'selftext',
   tagName: 'div',
   classNames: 'thing'.w(),
   classNameBindings: 'type even odd'.w(),
@@ -14,8 +13,15 @@ export default Ember.Component.extend({
     if (this.get('selftext')) {
       return true;
     }
+    if (this.get('media.oembed.type')) {
+      return true;
+    }
     return false;
-  }.property('imageUrl'),
+  }.property('imageUrl', 'media_embed.type'),
+
+  expandoClass: function() {
+    return this.get('media.oembed.type') || 'selftext';
+  }.property('media.oembed.type'),
 
   even: function() {
     return this.get('rank') % 2 === 0;
