@@ -31,3 +31,25 @@
 <div class='listing-chooser initialized'></div>
 <a name='content'></a>
 <div class='content' role='main'>{{outlet}}</div>
+{{#if fixedExpando}}
+  <div class='fixed-expando'>
+  <div class='controls'>
+    <button {{action "closeFixedExpando"}}>Close</button>
+  </div>
+  {{#with fixedExpando}}
+    {{#if imageUrl}}
+      <img {{bind-attr src=imageUrl}}/>
+    {{else}}
+      {{#if media.oembed.html}}
+        {{{media.oembed.html}}}
+      {{/if}}
+    {{/if}}{{#if selftext_html}}
+      <form class='usertext'>
+        <div class='usertext-body md-container'>
+          {{{selftext_html}}}
+        </div>
+      </form>
+    {{/if}}
+  {{/with}}
+  </div>
+{{/if}}

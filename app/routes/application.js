@@ -7,5 +7,14 @@ export default Ember.Route.extend({
       into: 'application',
       outlet: 'sidebar'
     });
+  },
+
+  actions: {
+    fixedExpando: function(post) {
+      this.controller.set('fixedExpando', post);
+    },
+    closeFixedExpando: function() {
+      this.controller.set('fixedExpando', null);
+    }
   }
 });

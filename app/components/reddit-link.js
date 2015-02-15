@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   tagName: 'div',
   classNames: 'thing'.w(),
   classNameBindings: 'type even odd'.w(),
+  fixedExpand: 'fixedExpando',
 
   expandable: function() {
     if (this.get('imageUrl')) {
@@ -17,7 +18,7 @@ export default Ember.Component.extend({
       return true;
     }
     return false;
-  }.property('imageUrl', 'media_embed.type'),
+  }.property('imageUrl', 'media.oembed.type'),
 
   expandoClass: function() {
     return this.get('media.oembed.type') || 'selftext';
@@ -56,7 +57,9 @@ export default Ember.Component.extend({
 
   actions: {
     toggleExpand: function() {
-      console.log('toggleExpand');
+      if (this.get('media.oembed.type') === 'video') {
+        return this.sendAction('fixedExpand', this.get('content'));
+      }
       this.toggleProperty('expand');
     }
   }
