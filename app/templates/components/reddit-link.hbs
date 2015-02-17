@@ -21,7 +21,7 @@
     <span class='domain'>(<a>{{domain}}</a>)</span>
   </p>
   {{#if expandable}}
-    <div {{action "toggleExpand"}} {{bind-attr
+    <div {{action "toggleExpand"}} title="toggle" {{bind-attr
       class=':expando-button expand:expanded:collapsed expandoClass'}}></div>
   {{/if}}
   <p class='tagline'>

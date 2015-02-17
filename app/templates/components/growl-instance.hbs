@@ -1,0 +1,24 @@
+
+{{#unboundIf notification.isError}}
+  <img src="../img/error.svg" alt="Error"/>
+{{/unboundIf}}
+
+{{#unboundIf notification.isAlert}}
+  <img src="../img/alert.svg" alt="Alert"/>
+{{/unboundIf}}
+
+{{#unboundIf notification.isInfo}}
+  <img src="../img/info.svg" alt="Info"/>
+{{/unboundIf}}
+
+<div class="message-area">
+  {{#unboundIf notification.isError}}
+    <h1>Error!</h1>
+  {{/unboundIf}}
+
+  {{#unboundIf notification.isAlert}}
+    <h1>Alert!</h1>
+  {{/unboundIf}}
+
+  {{{notification.content}}}
+</div>

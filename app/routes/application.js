@@ -25,9 +25,18 @@ export default Ember.Route.extend({
         return client('/api/v1/me').get();
       }).then(function(res) {
         console.log('got user', res);
+        this.growl.info([
+          '<h1>Logged in as',res.name,'</h1>'
+        ].join('\n'));
         return res;
       }.bind(this));
     }
+    this.growl.info([
+      '<h1>Welcome to <em>V for reddit</em></h1><div class="message">',
+      '<p>This is still an early and incomplete alpha!</p></div>'
+    ].join('\n'), {
+      closeIn: 6000
+    });
   },
 
   renderTemplate: function() {
