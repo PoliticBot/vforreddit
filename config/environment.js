@@ -13,7 +13,7 @@ module.exports = function(environment) {
       }
     },
     consumerKey: 'p93jnimz0njKow',
-    redirectUri: 'http://localhost:4200/#/?',
+    redirectUrl: 'http://localhost:4200/#/?',
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -52,7 +52,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.consumerKey = 'yP8VpQkHmtgcUA';
-    ENV.redirectUri = 'http://politicbot.github.io/#/?';
+    ENV.redirectUrl = 'http://politicbot.github.io/#/?';
   }
 
   return ENV;
