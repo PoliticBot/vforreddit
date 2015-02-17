@@ -9,7 +9,7 @@
   </div>
   <div id='header-bottom-left'>
     {{#if subreddit.header_img}}
-      {{#link-to 'index' id='header-img-a' class='default-header'}}
+      {{#link-to 'index' id='header-img-a'}}
         <img id='header-img' {{bind-attr
           src=subreddit.header_img
           alt=subreddit.display_name
