@@ -8,6 +8,9 @@ export default Ember.Controller.extend({
   subreddit: Ember.computed.alias('controllers.subreddit.content'),
   user: Ember.computed.alias('model'),
   currentMoment: function() {return moment();}.property(),
+  loginUrl: function() {
+    return client.getImplicitAuthUrl();
+  }.property('user'),
   loginExpiry: function() {
     return this.get('loginExpires');
   }.property('loginExpires', 'currentMoment'),
@@ -18,7 +21,10 @@ export default Ember.Controller.extend({
 
     return client('/api/v1/me').get().then(function(user) {
       this.set('user', user);
-    }.bind(this)).then(repeat);
+    }.bind(this)).then(repeat).catch(function() {
+      console.warning('Token expired');
+      this.set('user', null);
+    });
 
     function repeat() {if (!Ember.testing) {Ember.run.later(this, 'poll', 30*1000);}}
   }.on('init')

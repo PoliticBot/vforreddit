@@ -18,7 +18,7 @@
       {{/link-to}}
     {{else}}
       {{#link-to 'index' id='header-img' class='default-header'}}
-        From reddit.com
+        V for reddit
       {{/link-to}}
     {{/if}}
     {{outlet "tabmenu"}}
@@ -33,9 +33,10 @@
       <span class='separator'>|</span>
       <a id='modmail' href='/message/moderator' {{bind-attr class="user.has_mod_mail:havemail:nohavemail"}}>messages</a>
       <span class='separator'>|</span>
-      <a>Expires {{time-ahead-in-words loginExpiry}}</a>
+      <a {{action 'logout'}} title='Logout' style='cursor: pointer;'>
+        logout {{time-ahead-in-words loginExpiry}}</a>
     {{else}}
-      <a title='Login' {{action 'login'}} style='cursor: pointer;'>Login at reddit.com</a>
+      <a title='Login' {{bind-attr href=loginUrl}}>Login at reddit.com</a>
     {{/if}}
   </div>
 </div>
@@ -43,6 +44,15 @@
 <div class='listing-chooser initialized'></div>
 <a name='content'></a>
 <div class='content' role='main'>{{outlet}}</div>
+<div class='footer-parent'>
+  <div class='footer rounded'>
+  </div>
+  <p class='bottommenu'>This is NOT reddit.com, It is the V for reddit client</p>
+  <p class='bottommenu'>REDDIT and the ALIEN Logo are registered trademarks of reddit inc.</p>
+</div>
+<p class='debuginfo'>
+  <span class='icon'>π</span>
+</p>
 {{#if fixedExpando}}
   <div class='fixed-expando'>
   <div class='controls'>

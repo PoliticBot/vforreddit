@@ -1,3 +1,4 @@
+/* globals moment,window */
 import Ember from 'ember';
 import client from 'vforreddit/client';
 
@@ -38,11 +39,14 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    login: function() {
-      window.location = client.getImplicitAuthUrl();
-    },
     logout: function() {
-      window.locaiton.reload();
+      client.deauth().then(function() {
+        this.controllerFor('application').set('user', null);
+      }.bind(this)).catch(function(e) {
+        console.error(e.stack || e);
+        alert("Logout is broken due to a Snoocore bug, but if you refresh I forget your token.  So I'll do that now");
+        window.location.reload();
+      });
     },
     fixedExpando: function(post) {
       this.controller.set('fixedExpando', post);

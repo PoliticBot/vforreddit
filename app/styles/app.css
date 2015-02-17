@@ -18,3 +18,20 @@
 .fixed-expando .controls {
   text-align: right;
 }
+
+#header-img.default-header {
+  background-position: left center;
+  background-image: none;
+  text-align: center;
+  text-indent: 0px;
+  line-height: 40px;
+  font-size: 12pt;
+}
+
+.sr-interest-bar {
+  background-image: none;
+}
+
+.thumbnail.self {
+  background-image: none;
+}
