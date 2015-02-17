@@ -40,41 +40,24 @@
       <div class='tagline'></div>
       <form class='usertext'>
         <div class='usertext-body md-container'>
-          <div class='md'>
-            {{{description_html}}}
-          </div>
+          {{{description_html}}}
         </div>
       </form>
     </div>
   </div>
-{{else}}
-  <div class='spacer'>
-    <div class='sidebox submit submit-link'>
-      <div class='morelink'>
-        <a>Submit a new link</a>
-        <div class='nub'></div>
-      </div>
-    </div>
-  </div>
-  <div class='spacer'>
-    <div class='sidebox submit submit-text'>
-      <div class='morelink'>
-        <a>Submit a new text post</a>
-        <div class='nub'></div>
-      </div>
-    </div>
-  </div>
-  <div class='spacer'>
-    <div class='sidebox create'>
-      <div class='morelink'>
-        <a>Create your own subreddit</a>
-        <div class='nub'></div>
-      </div>
-      <div class='spacer'>
-        <a></a>
-        <div class='subtitle'>...do it for the children.</div>
-        <div class='subtitle'>...for your office.</div>
-      </div>
-    </div>
-  </div>
 {{/if}}
+  <div class='spacer'>
+    <form class='usertext'>
+      <div class='usertext-body md-container'>
+        <div class='md'>
+          <hr>
+          <h1>This is not reddit.com!!!</h1>
+          <p>This is a new type of API client for reddit.com.</p>
+          <p>It's built in Ember.js, and replicates the familiar reddit HTML as a Single Page App (SPA)</p>
+          <p><a href='https://github.com/PoliticBot/vforreddit'>Source code available at github.com</a></p>
+          <h2>What's the point?</h2>
+          <p>Recreating the reddit UI as a Single Page JS application makes it easy to host your own enhanced version of the site for your subreddit, or your own personal use.</p>
+        </div>
+      </div>
+    </form>
+  </div>
