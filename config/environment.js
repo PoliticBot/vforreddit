@@ -25,7 +25,7 @@ module.exports = function(environment) {
       'font-src': "'self'",
       'connect-src': "'self' https://*.reddit.com http://*.reddit.com",
       'img-src': "'self' http://*.redditmedia.com https://*.redditstatic.com",
-      'style-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' https://*.redditstatic.com",
       'media-src': "'self'"
     }
   };
