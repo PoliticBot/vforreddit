@@ -11,8 +11,8 @@
     <span class='score dislikes'>{{downs}} points</span>
     <span class='score unvoted'>{{score}} points</span>
     <span class='score likes'>{{ups}} points</span>
-    <time datetime="{{unbound created_utc}}" class='live-timestamp'>X ago</time>
-    <a class='numchildren'>({{num_children}} children)</a>
+    <time datetime="{{unbound created_utc}}" class='live-timestamp'>{{time-ago-in-words createdMoment}}</time>
+    <a class='numchildren'>({{children.length}} children)</a>
   </p>
   <form class='usertext'>
     <div class='usertext-body md-container'>

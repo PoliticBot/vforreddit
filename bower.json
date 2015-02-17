@@ -12,6 +12,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "snoocore": "~2.6.0",
-    "handlebars": "~2.0.0"
+    "handlebars": "~2.0.0",
+    "ember-cli-moment-shim": "~0.0.3"
   }
 }

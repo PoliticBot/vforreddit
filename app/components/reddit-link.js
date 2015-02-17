@@ -1,10 +1,11 @@
+/* globals moment */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
   expand: false,
   tagName: 'div',
   classNames: 'thing'.w(),
-  classNameBindings: 'type even odd'.w(),
+  classNameBindings: 'type even odd linkflairclass'.w(),
   fixedExpand: 'fixedExpando',
 
   expandable: function() {
@@ -30,6 +31,13 @@ export default Ember.Component.extend({
 
   odd: Ember.computed.not('even'),
 
+  linkflairclass: function() {
+    var name = this.get('link_flair_css_class');
+    if (name) {
+      return 'linkflair linkflair-' + name;
+    }
+  }.property('link_flair_css_class'),
+
   unknownProperty: function (key) {
     var content = Ember.get(this, 'content');
     if (content) {
@@ -54,6 +62,10 @@ export default Ember.Component.extend({
       return 'comment';
     }
   }.property('content.title'),
+
+  createdMoment: function() {
+    return moment.utc(this.get('created_utc') * 1000);
+  }.property('created_utc'),
 
   actions: {
     toggleExpand: function() {

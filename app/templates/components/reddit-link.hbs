@@ -7,9 +7,16 @@
   <div class='score likes'>{{ups}}</div>
   <div class='arrow down' role='button' aria-label='downvote'></div>
 </div>
-{{#if thumbnail}}<a class='thumbnail may-blank' {{bind-attr href=url}}><img {{bind-attr src=thumbnail}}/></a>{{/if}}
+{{#if is_self}}
+  <a class='thumbnail self' {{bind-attr href=url}}></a>
+{{else}}
+  {{#if thumbnail}}<a class='thumbnail may-blank' {{bind-attr href=url}}><img {{bind-attr src=thumbnail}}/></a>{{/if}}
+{{/if}}
 <div class='entry unvoted'>
   <p class='title'>
+    {{#if link_flair_css_class}}
+      <span class='linkflairlabel'>{{link_flair_text}}</span>
+    {{/if}}
     <a class='title' {{bind-attr href=url}}>{{title}}</a>
     <span class='domain'>(<a>{{domain}}</a>)</span>
   </p>
@@ -20,7 +27,7 @@
   <p class='tagline'>
     submitted <time {{bind-attr
       datetime=created_utc
-    }} class='live-timestamp'>X time ago</time>
+    }} class='live-timestamp'>{{time-ago-in-words createdMoment}}</time>
     by <a>{{author}}</a>
     to <a href="/r/{{unbound subreddit}}">/r/{{subreddit}}</a>
   </p>
@@ -38,7 +45,7 @@
   </ul>
   {{#if expand}}
     <div class='expando'>{{#if imageUrl}}
-      <img {{bind-attr src=imageUrl}}/>
+      <img {{bind-attr src=imageUrl}} {{action "toggleExpand"}}/>
     {{else}}
       {{#if media.oembed.html}}
         {{{media.oembed.html}}}
