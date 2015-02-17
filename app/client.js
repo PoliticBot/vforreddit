@@ -1,7 +1,7 @@
 /* globals Snoocore */
 import config from 'vforreddit/config/environment';
 
-export default new Snoocore({
+export default window.reddit = new Snoocore({
   userAgent: 'Veronica 0.0.1 by go1dfish',
   decodeHtmlEntities: true,
   oauth: {

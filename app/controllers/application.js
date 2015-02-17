@@ -8,7 +8,9 @@ export default Ember.Controller.extend({
   subreddit: Ember.computed.alias('controllers.subreddit.content'),
   user: Ember.computed.alias('model'),
   currentMoment: function() {return moment();}.property(),
-
+  loginExpiry: function() {
+    return this.get('loginExpires');
+  }.property('loginExpires', 'currentMoment'),
   poll: function() {
     this.notifyPropertyChange('currentMoment');
     repeat = repeat.bind(this);

@@ -16,19 +16,6 @@
       </div>
     </div>
   </div>
-  {{!--
-  <form class='usertext cloneable'>
-    <div class='usertext-edit'>
-      <div><textarea rows=1 cols=1 name='text'></textarea></div>
-      <div class='bottom-area'>
-        <div class='usertext-buttons'>
-          <button type='submit' class='save'>save</button>
-          <button type='button' class='cancel'>cancel</button>
-          <span class='status'></span>
-        </div>
-      </div>
-    </div>
-  </form>
-  --}}
+  {{#if user}}{{reply-form thing=link cancel=false}}{{/if}}
   {{reddit-listing content=comments classNames="nestedlisting"}}
 </div>

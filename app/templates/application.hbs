@@ -33,9 +33,9 @@
       <span class='separator'>|</span>
       <a id='modmail' href='/message/moderator' {{bind-attr class="user.has_mod_mail:havemail:nohavemail"}}>messages</a>
       <span class='separator'>|</span>
-      <a {{action 'logout'}}>logout</a>
+      <a>Expires {{time-ahead-in-words loginExpiry}}</a>
     {{else}}
-      {{link-to "Login at reddit.com" "login"}}
+      <a title='Login' {{action 'login'}} style='cursor: pointer;'>Login at reddit.com</a>
     {{/if}}
   </div>
 </div>

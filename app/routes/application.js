@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import client from 'vforreddit/client';
 
-function getParameterByName(name) {
+function getParamByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.hash.replace(/^#/, '?'));
@@ -10,9 +10,14 @@ function getParameterByName(name) {
 
 export default Ember.Route.extend({
   model: function() {
-    var code = getParameterByName('access_token');
+    var code = getParamByName('access_token');
     console.log('code', code);
     if (code) {
+      this.controllerFor('application').set(
+        'loginExpires',
+        moment().add(parseInt(getParamByName('expires_in')), 'second')
+      );
+
       window.location.hash = '';
       return client.auth(code).then(function() {
         console.log('authed');
@@ -33,6 +38,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    login: function() {
+      window.location = client.getImplicitAuthUrl();
+    },
     logout: function() {
       window.locaiton.reload();
     },

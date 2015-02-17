@@ -15,7 +15,6 @@ Router.map(function() {
     this.route('top');
     this.route('gilded');
   });
-  this.route('login');
   this.route('catchall', {path: '/*path'});
 });
 
