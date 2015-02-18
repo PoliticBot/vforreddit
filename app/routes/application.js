@@ -12,7 +12,6 @@ function getParamByName(name) {
 export default Ember.Route.extend({
   model: function() {
     var code = getParamByName('access_token');
-    console.log('code', code);
     if (code) {
       this.controllerFor('application').set(
         'loginExpires',
@@ -21,12 +20,13 @@ export default Ember.Route.extend({
 
       window.location.hash = '';
       return client.auth(code).then(function() {
-        console.log('authed');
         return client('/api/v1/me').get();
       }).then(function(res) {
-        console.log('got user', res);
         this.growl.info([
-          '<h1>Logged in as',res.name,'</h1>'
+          '<h1>Logged in as',res.name,'</h1>',
+          '<div class="message">',
+          'V for reddit will now poll for new (mod) mail',
+          '</div>'
         ].join('\n'));
         return res;
       }.bind(this));

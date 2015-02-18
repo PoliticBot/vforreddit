@@ -22,9 +22,11 @@ export default Ember.Controller.extend({
     return client('/api/v1/me').get().then(function(user) {
       this.set('user', user);
     }.bind(this)).then(repeat).catch(function() {
-      console.warning('Token expired');
+      this.growl.alert([
+        '<div class="message">Logged out</div>'
+      ].join('\n'), {clickToDismiss: true});
       this.set('user', null);
-    });
+    }.bind(this));
 
     function repeat() {if (!Ember.testing) {Ember.run.later(this, 'poll', 30*1000);}}
   }.on('init')
