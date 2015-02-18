@@ -6,13 +6,14 @@
 <div class='entry unvoted'>
   <p class='tagline'>
     {{!==<a class='expand'>[-]</a>--}}
-    <a class='author'>{{unbound author}}</a>
-    <span class='userattrs'></span>
-    <span class='score dislikes'>{{downs}} points</span>
-    <span class='score unvoted'>{{score}} points</span>
-    <span class='score likes'>{{ups}} points</span>
+    <a class='author'>{{unbound author}}</a><span class='userattrs'></span><span
+      class='score dislikes'>{{downs}} points</span><span
+      class='score unvoted'>{{score}} points</span><span
+      class='score likes'>{{ups}} points</span>
     <time datetime="{{unbound created_utc}}" class='live-timestamp'>{{time-ago-in-words createdMoment}}</time>
+{{#if children.length}}
     <a class='numchildren'>({{children.length}} children)</a>
+{{/if}}
   </p>
   <form class='usertext'>
     <div class='usertext-body md-container'>

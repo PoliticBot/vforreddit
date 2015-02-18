@@ -15,6 +15,7 @@ export default Ember.Controller.extend({
     return this.get('loginExpires');
   }.property('loginExpires', 'timeupdater.currentMoment'),
   updateUserData: function() {
+    if (!this.get('user')) {return;}
     client('/api/v1/me').get().then(function(user) {
       this.set('user', user);
     }.bind(this)).catch(function() {
