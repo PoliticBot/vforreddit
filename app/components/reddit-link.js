@@ -2,11 +2,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  timeupdater: Ember.inject.service(),
   expand: false,
   tagName: 'div',
   classNames: 'thing'.w(),
   classNameBindings: 'type even odd linkflairclass'.w(),
   fixedExpand: 'fixedExpando',
+
+  setup: function() {this.get('timeupdater.currentMoment');}.on('init'),
+
 
   expandable: function() {
     if (this.get('imageUrl')) {
@@ -65,7 +69,7 @@ export default Ember.Component.extend({
 
   createdMoment: function() {
     return moment.utc(this.get('created_utc') * 1000);
-  }.property('created_utc'),
+  }.property('created_utc', 'timeupdater.currentMoment'),
 
   actions: {
     toggleExpand: function() {
