@@ -1,0 +1,17 @@
+<div {{bind-attr class=':spacer working'}}>
+  <div id='siteTable_organic' class='organic-listing show-placeholder' style='background-color: rgba(0, 0, 0, 0);'>
+    <div class='sr-interest-bar'>
+      <div class='bubble'>
+        <div class='query-box'>
+          {{input class='query' value=nextQuery placeholder='comment search terms'}}
+          <div class='throbber'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='spacer'>
+  <style>.ember-app >.content .link .rank, .rank-spacer { width: 3.3ex } .ember-app >.content .link .midcol, .midcol-spacer { width: 5.1ex }</style>
+  {{reddit-listing content=content classNames="linklisting" rankStart=count}}
+</div>
