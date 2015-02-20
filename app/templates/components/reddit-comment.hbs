@@ -17,7 +17,11 @@
   </p>
   <form class='usertext'>
     <div class='usertext-body md-container'>
-      {{{body_html}}}
+      {{#if body_html}}
+        {{{body_html}}}
+      {{else}}
+        {{body}}
+      {{/if}}
     </div>
   </form>
   <ul class='flat-list buttons'>

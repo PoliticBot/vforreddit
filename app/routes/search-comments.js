@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 
   model: function(params) {
     console.log('model', params);
-    var url = 'http://earth.fizzlefoo.com/api/api.php?sort=score&q=';
+    var url = 'http://earth.fizzlefoo.com/api/search/comments?sort=score&q=';
     url += encodeURIComponent(params.query);
     if (!params.query) {return [];}
     return Ember.$.ajax({
