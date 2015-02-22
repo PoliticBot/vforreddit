@@ -15,7 +15,7 @@ Router.map(function() {
     this.route('top');
     this.route('gilded');
   });
-  this.route('searchComments');
+  this.route('searchComments', {path: '/search/comments'});
   this.route('privacy');
   this.route('catchall', {path: '/*path'});
 });

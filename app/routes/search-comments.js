@@ -2,16 +2,23 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   queryParams: {
-    query: {
+    q: {
+      refreshModel: true
+    },
+    sort: {
+      refreshModel: true
+    },
+    limit: {
       refreshModel: true
     }
   },
 
   model: function(params) {
-    console.log('model', params);
-    var url = 'http://earth.fizzlefoo.com/api/search/comments?sort=score&q=';
-    url += encodeURIComponent(params.query);
-    if (!params.query) {return [];}
+    var url = 'http://api.fizzlefoo.com/search/comments?q=';
+    if (!params.q) {return [];}
+    url += encodeURIComponent(params.q);
+    url += '&sort=' + encodeURIComponent(params.sort);
+    url += '&limit=' + encodeURIComponent(params.limit);
     return Ember.$.ajax({
       url: url,
       dataType: 'json'
@@ -19,4 +26,4 @@ export default Ember.Route.extend({
       return res.data;
     });
   }
-})
+});
